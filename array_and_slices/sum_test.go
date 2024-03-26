@@ -40,9 +40,17 @@ func TestSumAll(t *testing.T) {
 }
 
 func TestSumAllTails(t *testing.T) {
-	got := SumAllTails([]int{1, 2}, []int{0, 9})
-	expected := []int{2, 9}
-	compareSlices(t, expected, got)
+	t.Run("make sum of some slices", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2}, []int{0, 9})
+		expected := []int{2, 9}
+		compareSlices(t, expected, got)
+	})
+
+	t.Run("safely sum empty slices", func(t *testing.T) {
+		got := SumAllTails([]int{}, []int{3, 4, 5})
+		expected := []int{0, 9}
+		compareSlices(t, expected, got)
+	})
 }
 
 func compareSlices(t testing.TB, expected, got []int) {
