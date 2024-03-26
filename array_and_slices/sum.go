@@ -1,10 +1,10 @@
 package main
 
 func Sum(numbers [5]int) int {
-	sum := numbers[0]
+	sum := 0
 
-	for i := 1; i < len(numbers); i++ {
-		sum += numbers[i]
+	for _, number := range numbers {
+		sum += number
 	}
 
 	return sum
